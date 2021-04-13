@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @report_item.amount %>
+</p>
+
+<p>
+  <strong>Report:</strong>
+  <%= @report_item.report %>
+</p>
+
+<%= link_to 'Edit', edit_report_report_item_path(@report, @report_item) %> |
+<%= link_to 'Back', report_report_items_path(@report) %>

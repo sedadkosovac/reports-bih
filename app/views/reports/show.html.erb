@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @report.name %>
+</p>
+
+<%= link_to 'New Report Item', new_report_report_item_path(@report) %>
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Report Items for <%= @report.name%></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @report.report_items.each do |report_item| %>
+      <tr>
+        <td><%= report_item.amount %></td>
+        <td><%= link_to 'Show', report_report_item_path(@report, report_item) %></td>
+        <td><%= link_to 'Edit', edit_report_report_item_path(@report, report_item) %></td>
+        <td><%= link_to 'Destroy', report_report_item_path(@report, report_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td><%= @report.sum_amount %></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Report Item', new_report_report_item_path(@report) %>
+<%= link_to 'Download CSV', csv_report_path(@report) %>
